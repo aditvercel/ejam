@@ -1,113 +1,241 @@
-import Image from 'next/image'
+import React from "react";
+import clarifon from "../public/icons/clarifon.svg";
+import Mcafee from "../public/icons/Mcafee.svg";
+import norton from "../public/icons/norton.svg";
+import tickcircle from "../public/icons/tickcircle.svg";
+import image4 from "../public/icons/image4.svg";
+import Rectangle from "../public/icons/Rectangle.svg";
+import Stars from "../public/icons/Stars.svg";
+import verify1 from "../public/icons/verify1.svg";
+import Phone from "../public/icons/Phone.svg";
+import tickcircle1 from "../public/icons/tickcircle1.svg";
+import percent from "../public/icons/percent.svg";
+import Line1 from "../public/icons/Line1.svg";
+import image6 from "../public/icons/image6.svg";
+
+import Image from "next/image"; // Import Image from "next/image"
+
+const step = [
+  {
+    text: "Step 1 : Cart Review",
+    icon: tickcircle,
+    color: "#85BF55",
+  },
+  {
+    text: "Step 2 : Checkout",
+    icon: tickcircle,
+    color: "#85BF55",
+  },
+  {
+    text: "Step 3 : Special Offer",
+    icon: "",
+    color: "#2C7EF8",
+    numcolor: "white",
+  },
+  {
+    text: "Step 4 : Confirmation",
+    icon: "",
+    color: "white",
+    numcolor: "#2C7EF8",
+  },
+];
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div>
+      <div
+        style={{ height: 96 }}
+        className="flex justify-between pl-[10px] pr-[10px]"
+      >
+        <Image
+          src={clarifon}
+          alt="Clarifon Logo"
+          width={192} // Set the desired width
+          height={36} // Set the desired height
+        />
+        <div className="flex gap-[32px]">
+          <Image
+            src={Mcafee}
+            alt="Clarifon Logo"
+            width={88} // Set the desired width
+            height={32} // Set the desired height
+          />
+
+          <Image
+            src={norton}
+            alt="Clarifon Logo"
+            width={88} // Set the desired width
+            height={32} // Set the desired height
+          />
+        </div>
+      </div>
+      <div className="grid justify-center align-middle text-center">
+        <div style={{ fontWeight: 400, fontSize: 48 }}>
+          Wait ! your order in progress.
+        </div>
+        <div style={{ fontWeight: 400, fontSize: 24 }}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className=" flex justify-evenly mt-20">
+        {step.map((item, index) => {
+          return (
+            <>
+              <div className="flex justify-center align-middle items-center gap-5">
+                {item.icon ? (
+                  <Image
+                    src={item.icon}
+                    alt="Logo"
+                    width={40} // Set the desired width
+                    height={40} // Set the desired height
+                    className=" text-white"
+                    style={{
+                      backgroundColor: `${item.color}`,
+                      borderRadius: "50%",
+                    }}
+                  />
+                ) : (
+                  <div
+                    className="w-[40px] h-[40px] rounded-full border border-[#2C7EF8] flex justify-center align-middle items-center"
+                    style={{
+                      backgroundColor: `${item.color}`,
+                      color: `${item.numcolor ? item.numcolor : "#2C7EF8"}`,
+                    }}
+                  >
+                    {index + 1}
+                  </div>
+                )}
+                <div>{item.text}</div>
+              </div>
+            </>
+          );
+        })}
       </div>
+      <div className="grid p-10 gap-10 lg:flex">
+        <div className="grid lg:w-[50%] p-5">
+          <Image src={image4} className="lg:w-[575px] lg:h-[591px]" />
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
+          <div className="grid lg:flex gap-3 mt-10">
+            <Image className="w-[48px] h-[48px]" src={Rectangle} />
+            <div className="grid md:justify-center md:align-middle">
+              <Image src={Stars} className="md:self-center md:flex" />
+              <div className="flex justify-center align-middle items-center gap-3">
+                <p>Ken T.</p> <Image src={verify1} /> <p>Verified Customer</p>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8">
+            “As soon as the Clarifions arrived I put one in my bedroom. This was
+            late in the afternoon. When I went to the bedroom in the evening it
+            smelled clean. When I went to bed I felt I could breathe better.
+            Wonderful.”
+          </div>
+        </div>
+        <div className="lg:w-[50%] pt-10">
+          <div style={{ fontWeight: 400, fontSize: 32 }}>
+            <span style={{ fontWeight: 600, fontSize: 32, color: "#2C7EF8" }}>
+              ONE TIME ONLY
+            </span>{" "}
+            special price for 6 extra Clarifion for only
+            <span style={{ fontWeight: 600, fontSize: 32, color: "#2C7EF8" }}>
+              $14 each
+            </span>{" "}
+            ($84.00 total!)
+          </div>
+          <div className="mt-5 grid lg:flex gap-5 w-[100%]">
+            <div className="w-[134px] h-[134px] bg-[#2C7EF8] rounded-xl">
+              <Image src={Phone}></Image>
+            </div>
+            <div className="flex justify-between lg:w-[70%]">
+              <div>
+                <p>Clarifion Air Ionizer</p>
+                <Image src={Stars} />
+                <div className="flex align-middle items-center self-center gap-2">
+                  <div
+                    className="w-[16px] h-[16px] rounded-full bg-[#2C7EF8] mt-2"
+                    style={{ border: "4px solid #E3EEFF" }}
+                  ></div>
+                  <p className="mt-2">12 left in Stock</p>
+                </div>
+                <p>
+                  Simply plug a Clarifion into any standard outlet and replace
+                  bulky, expensive air purifiers with a simple.
+                </p>
+              </div>
+              <div className="flex gap-2">
+                <p style={{ color: "#969696", textDecoration: "line-through" }}>
+                  $180
+                </p>
+                <p style={{ color: "#2C7EF8", fontWeight: 600, fontSize: 22 }}>
+                  $84
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="grid pl-5 gap-3 mt-5">
+            <div className="flex gap-2">
+              <Image src={tickcircle1}></Image>
+              <p style={{ fontWeight: 700, fontSize: 16 }}>
+                Negative Ion Technology may <strong>help with allergens</strong>
+              </p>
+            </div>
+            <div className="flex gap-2">
+              <Image src={tickcircle1}></Image>
+              <p style={{ fontWeight: 700, fontSize: 16 }}>
+                Designed for <strong>air rejuvenation</strong>
+              </p>
+            </div>
+            <div className="flex gap-2">
+              <Image src={tickcircle1}></Image>
+              <p style={{ fontWeight: 700, fontSize: 16 }}>
+                <strong>Perfect for every room</strong> in all types of places.
+              </p>
+            </div>
+            <div className="h-[56px] bg-[#EDF3FD] flex align-middle items-center self-center pl-3 gap-3">
+              <div className=" rounded-full bg-[#2C7EF8] w-[20px] h-[20px]">
+                <Image src={percent} />
+              </div>
+              <p>
+                Save <span style={{ color: "#2C7EF8" }}>53%</span> and get{" "}
+                <span style={{ color: "#2C7EF8" }}>6 extra Clarifision</span>{" "}
+                for only <span style={{ color: "#2C7EF8" }}>$14 Each.</span>
+              </p>
+            </div>
+          </div>
+          <div className="h-[104px] rounded-full bg-[#59AE43] mt-10 text-white flex justify-center align-middle items-center">
+            <p
+              style={{ fontWeight: 700, fontSize: 20, display: "flex", gap: 5 }}
+            >
+              Yes - Claim my discount
+              <Image src={Line1} />
+            </p>
+          </div>
+          <div className="border h-[33px] mt-5 flex justify-evenly align-middle items-center">
+            <div>Free shipping</div>
+            <div>Secure 256-bit SSL encryption.</div>
+            <div>Secure 256-bit SSL encryption.</div>
+          </div>
+          <p
+            className=" text-center text-[#F82C2C] mt-3"
+            style={{
+              fontSize: 18,
+              fontWeight: 500,
+              textDecoration: "underline",
+            }}
+          >
+            No thanks, I don’t want this.
           </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+          <div className="flex mt-3 gap-3">
+            <Image src={image6} className="h-[88px] w-[88px]" />
+            <p>
+              If you are not completely thrilled with your Clarifion - We have a
+              30 day satisfaction guarantee. Please refer to our return policy
+              at the bottom of the page for more details. Happy Shopping!
+            </p>
+          </div>
+        </div>
       </div>
-    </main>
-  )
+    </div>
+  );
 }
